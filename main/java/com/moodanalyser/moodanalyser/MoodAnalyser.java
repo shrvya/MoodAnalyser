@@ -1,11 +1,25 @@
 package com.moodanalyser.moodanalyser;
 
+/*
+ * class has a method to analyse the mood
+ */
 public class MoodAnalyser {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("welcome to mood analyser");
-
+	String message;
+	public MoodAnalyser(){
+		
+	}
+	public MoodAnalyser(String message){
+		this.message=message;
+	}
+	/*
+	 * analyseMood method returns a string it takes a parameter message,if message
+	 * has sad then it returns SAD else it returns HAPPY
+	 */
+	public String analyseMood() {
+		if (message.contains("sad"))
+			return "SAD";
+		else
+			return "Happy";
 	}
 
 }
