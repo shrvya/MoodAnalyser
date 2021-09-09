@@ -21,7 +21,7 @@ public class MoodAnalyserTest {
 	public void givenHappyMoodReturnHappy() throws MoodAnalysisException {
 		MoodAnalyser moodAnalysers = new MoodAnalyser("this is happy ");
 		String mood = moodAnalysers.analyseMood();
-		Assert.assertThat(mood, CoreMatchers.is("Happy"));
+		Assert.assertThat(mood, CoreMatchers.is("HAPPY"));
 	}
 	@Test
 	public void givenNullMoodReturnHappy() throws MoodAnalysisException {
@@ -30,6 +30,20 @@ public class MoodAnalyserTest {
 			
 		String mood = moodAnalysers.analyseMood();
 		Assert.assertEquals("Happy", mood);
+	}
+		catch(MoodAnalysisException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void givenEmptyMoodReturnThrowException() throws MoodAnalysisException {
+		MoodAnalyser moodAnalysers = new MoodAnalyser(" ");
+		try {
+			
+		String mood = moodAnalysers.analyseMood();
+		Assert.assertEquals(" ", mood);
 	}
 		catch(MoodAnalysisException e)
 		{
