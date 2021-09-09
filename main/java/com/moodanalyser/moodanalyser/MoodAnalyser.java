@@ -19,16 +19,17 @@ public class MoodAnalyser {
 	/*
 	 * analyseMood method returns a string it takes a parameter message,if message
 	 * has sad then it returns SAD else it returns HAPPY
+	 * when mood is empty it throws an exception
 	 */
-	public String analyseMood() {
+	public String analyseMood() throws MoodAnalysisException{
 		try {
 			if (message.contains("sad"))
 				return "SAD";
 			else
 				return "Happy";
-		} catch (NullPointerException e) {
-
-			return "HAPPY";
+		} catch ( NullPointerException e) {
+           throw new MoodAnalysisException("This is an Empty Mood!!!!");
+			
 		}
 
 	}
