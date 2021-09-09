@@ -11,14 +11,23 @@ import org.junit.Test;
 public class MoodAnalyserTest {
 
 	@Test
-	public void testMoodAnalyser() {
-		MoodAnalyser moodAnalyser = new MoodAnalyser("This is a sad message");
+	public void givenSadMoodReturnSad() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser("this is sad");
 		String mood = moodAnalyser.analyseMood();
 		Assert.assertThat(mood, CoreMatchers.is("SAD"));
-		MoodAnalyser moodAnalysers = new MoodAnalyser("This is a happy message");
-		String moods = moodAnalysers.analyseMood();
-		Assert.assertThat(moods, CoreMatchers.is("Happy"));
-
 	}
-
+	@Test
+	public void givenHappyMoodReturnHappy() {
+		MoodAnalyser moodAnalysers = new MoodAnalyser("this is happy ");
+		String mood = moodAnalysers.analyseMood();
+		Assert.assertThat(mood, CoreMatchers.is("Happy"));
+	}
+	@Test
+	public void givenNullMoodReturnHappy() {
+		MoodAnalyser moodAnalysers = new MoodAnalyser(null);
+		String mood = moodAnalysers.analyseMood();
+		Assert.assertEquals("HAPPY", mood);
+	}
+	
+	
 }
